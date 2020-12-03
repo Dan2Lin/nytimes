@@ -1,4 +1,5 @@
-
+@import '~bootstrap/scss/bootstrap.scss';
+@import './assets/font.scss';
 
 body {
   margin: 0;
@@ -7,5 +8,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+.h-250 { 
+  height: 250px; 
+}
+
+@include media-breakpoint-up(md){
+  .display-4 {
+      font-size: 3rem;
+  }
+
+  .h-md-250 { 
+    height: 250px; 
+  }
 }
 

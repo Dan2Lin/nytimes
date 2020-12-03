@@ -1,0 +1,21 @@
+ .news-header {
+    &-logo {
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+        font-size: 2rem;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+                &:hover {
+                    text-decoration: underline;
+                    color: white;
+                }
+            }
+        }
+    }
+  }

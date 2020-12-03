@@ -1,0 +1,42 @@
+.category-filter {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+
+    .nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+
+        .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+
+            &::after {
+                content: "|";
+                width: 10px;
+                height: 100%;
+                margin-left: 10px;
+            }
+
+            &:last-child::after {
+                content: '';
+                display: none;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+  }
+  
