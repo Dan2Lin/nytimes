@@ -1,20 +1,22 @@
-import { Fragment } from 'react';
+import { Provider } from 'react-redux';
+import store from './store'
+import CategoryFilter from './component/CategoryFilter/CategoryFilter';
+import Footer from './component/Footer/Footer';
+import Header from './component/Header/Header';
+import NewsList from './component/NewsList/NewsList';
+
 import './App.scss';
-import CategoryFilter from './component/CategoryFilter';
-import Footer from './component/Footer';
-import Header from './component/Header';
-import NewsList from './component/NewsList';
 
 function App() {
   return (
-    <Fragment>
+    <Provider store = {store}>
       <Header></Header>
       <div className="container">
           <CategoryFilter></CategoryFilter>
           <NewsList></NewsList>
           <Footer></Footer>
       </div>
-    </Fragment>
+    </Provider>
   );
 }
 
