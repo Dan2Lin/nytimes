@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actionCreators } from './store';
+import { actionCreators } from '../../store';
 import './CategoryFilter.scss';
 
 class CategoryFilter extends Component {
@@ -8,10 +8,10 @@ class CategoryFilter extends Component {
     render() {
         const { categoryList, getListByCategory } = this.props;
         return (
-            <Fragment>
-                <div className="category-filter py-1 mb-2 border-bottom">
-                    <nav className="nav d-flex justify-content-center">
-                        {categoryList.map((item) => {
+            <div className="category-filter py-1 mb-2 border-bottom">
+                <nav className="nav d-flex justify-content-center">
+                    {
+                        categoryList.length > 0 && categoryList.map((item) => {
                             return (
                                 <span
                                     key={item}
@@ -19,17 +19,16 @@ class CategoryFilter extends Component {
                                     onClick={() => getListByCategory(item)}
                                 >{item}</span>
                             )
-                        })}
-                    </nav>
-                </div>
-            </Fragment>
-        )
-    }
+                        })
+                    }
+                </nav>
+            </div>
+        )}
 }
 
 const mapStateToProps = (state) => {
     return {
-        categoryList: state.categoryList.list
+        categoryList: state.home.filterList
     }
 }
 

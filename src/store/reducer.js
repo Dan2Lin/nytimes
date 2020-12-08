@@ -1,10 +1,8 @@
 import { combineReducers }  from 'redux';
-import { reducer as newsListReducer } from '../component/NewsList/store';
-import { reducer as categoryListReducer } from '../component/CategoryFilter/store';
+import { reducer as HomeReducer } from '../pages/home/store';
 
 const reducer = combineReducers({
-    newsList: newsListReducer,
-    categoryList: categoryListReducer
+    home: HomeReducer,
 })
 
 export default reducer;

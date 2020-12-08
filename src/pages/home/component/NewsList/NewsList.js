@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { actionCreators } from '../../store';
 import NewsItem from '../NewsItem/NewsItem';
-import { actionCreators } from './store';
 
 class NewsList extends Component {
 
@@ -16,12 +17,14 @@ class NewsList extends Component {
             return (
                 <Fragment>
                     <div className="row mb-2">
-                        {list.map((item,index) => {
+                        {list.map((item) => {
                             return (
-                                <NewsItem 
-                                    key={item.title}
-                                    item={item}
-                                ></NewsItem>
+                                <Link key={item.title} to='/detail'>
+                                    <NewsItem 
+                                        key={item.title}
+                                        item={item}
+                                    ></NewsItem>
+                                </Link>
                             )
                         })}
                     </div>
@@ -36,7 +39,7 @@ class NewsList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.newsList.list
+        list: state.home.list
     }
 }
 
