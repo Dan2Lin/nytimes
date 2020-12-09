@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-
+import React, { Component, Fragment } from 'react';
+import NewsDetail from './component/NewsDetails/NewsDetail';
+import Comments from './component/Comments/Comments';
 export default class Detail extends Component {
     render() {
         return (
-            <div>
-                detail
-            </div>
+            <Fragment>
+                <NewsDetail />
+                <Comments />
+            </Fragment>
         )
     }
 }

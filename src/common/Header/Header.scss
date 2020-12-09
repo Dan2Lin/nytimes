@@ -8,13 +8,11 @@
         }
     }
     .navbar-nav {
-        .nav-item {
-            .nav-link {
-                font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-                &:hover {
-                    text-decoration: underline;
-                    color: white;
-                }
+        .nav-link {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            &:hover {
+                text-decoration: underline;
+                color: white;
             }
         }
     }

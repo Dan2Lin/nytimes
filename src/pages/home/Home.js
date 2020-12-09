@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import NewsList from '../home/component/NewsList/NewsList';
 import CategoryFilter from '../home/component/CategoryFilter/CategoryFilter';
 
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <CategoryFilter/>
                 <NewsList />
-            </div>
+            </Fragment>
         )
     }
 }

@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
+import { Nav } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store';
 import './CategoryFilter.scss';
-
 class CategoryFilter extends Component {
 
     render() {
         const { categoryList, getListByCategory } = this.props;
         return (
-            <div className="category-filter py-1 mb-2 border-bottom">
-                <nav className="nav d-flex justify-content-center">
-                    {
-                        categoryList.length > 0 && categoryList.map((item) => {
-                            return (
-                                <span
-                                    key={item}
-                                    className="p-2 text-muted nav-link"
-                                    onClick={() => getListByCategory(item)}
-                                >{item}</span>
-                            )
-                        })
-                    }
-                </nav>
+            <div className="category-filter py-1 border-bottom">
+                <Nav className="d-flex justify-content-center">
+                    {categoryList.length > 0 && categoryList.map((item) => {
+                        return (
+                            <Nav.Item
+                                key={item}
+                                className="p-2 text-muted"
+                                onClick={() => getListByCategory(item)}
+                            >{item}</Nav.Item>
+                        )
+                    })}
+                </Nav>
             </div>
         )}
 }

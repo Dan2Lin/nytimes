@@ -2,6 +2,10 @@ import * as constants from './constants';
 
 const defaultState = {
     list: [],
+    meta: {
+        page: 1,
+        totalPage: 1
+    },
     filterList: ['World', 'Science' , 'US', 'Arts']
 }
 const reducer = (state = defaultState, action) => {
@@ -9,7 +13,8 @@ const reducer = (state = defaultState, action) => {
         case constants.SET_NEWS_LIST:
             return {
                 ...state,
-                list: action.list
+                list: action.list,
+                meta: action.meta
             }
     
         default:

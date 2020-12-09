@@ -1,33 +1,47 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Container, Row, Media } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { actionCreators } from '../../store';
 import './NewsDetail.scss';
 
-export default class NewsDetail extends Component {
-    static propTypes = {
-        prop: PropTypes
-    }
+class NewsDetail extends Component {
+
+    componentDidMount() {
+        this.props.getArticleDetail();
+    } 
 
     render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="article-post">
-                        <h2 className="article-post-title">Sample blog post</h2>
-                        <p className="article-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+        const { article } = this.props;
 
-                        <p>
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                            This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        return (
+            <Container>
+                <Row>
+                    <Media>
+                        <Media.Body className="article-post">
+        <h2 className="article-post-title">{article.title}</h2>
+                            <p className="article-post-meta">{article.date} by <strong> {article.author} </strong></p>
+                            <section dangerouslySetInnerHTML={{__html: article.content}}></section>
+                        </Media.Body>
+                    </Media>
+                </Row>
+            </Container>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        article: state.detail
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      getArticleDetail() {
+        dispatch(actionCreators.getArticle());
+      }  
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsDetail)
+
