@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store';
-import NewsItem from '../NewsItem/NewsItem';
+import NewsItem from '../newsItem/NewsItem';
 import PaginationComponent from '../pagination/PaginationComponent';
 
 class NewsList extends Component {
