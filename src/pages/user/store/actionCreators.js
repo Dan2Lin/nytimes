@@ -18,6 +18,15 @@ const refreshToken = () => {
     // refresh token 
 }
 
+export const setErrorMsg = (errorMsg) => ({
+    type: constants.SET_ERROR_MSG,
+    errorMsg
+})
+
+export const clearErrorMsg = () => ({
+    type: constants.CLEAR_ERROR_MSG
+})
+
 export const signUp = (mail, pass) => {
     return (dispatch) => {
         axios.post('/auth/register', {
@@ -46,6 +55,7 @@ export const signIn = (mail, pass) => {
                 //dispatch(setNewsList(formatListData(res.data.results)));
             }).catch((err) => {
                 console.log('error');
+                console.log(err);
             })
         }
 }

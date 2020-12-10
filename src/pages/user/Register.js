@@ -2,52 +2,20 @@ import React, { Component } from 'react';
 import { Form , Button, Container, Alert} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import  * as sharedFuncs from '../../store/common';
 
 class Register extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             email: "",
-            password: "",
-            errorMsg:""
-        }
-
-        this.query = {
-            email:{
-                value:'',
-                validata:[
-                    {
-                        errMessage:'email is required!',
-                        test:(value) => {
-                            return value;
-                        }
-                    }
-                ]
-            },
-            password:{
-                value:'',
-                validata:[
-                    {
-                        errMessage:'password is required!',
-                        test:(value) => {
-                            return value;
-                        }
-                    },
-                    {
-                        errMessage:'password length must be 6!',
-                        test:(value) => {
-                            return value.length === 6;
-                        }
-                    }
-                ]
-            }
+            password: ""
         }
     }
 
     render() {
-        const { email, password, errorMsg } = this.state;
-        const { userSignUp } = this.props;
+        const { email, password } = this.state;
+        const { errorMsg, userSignUp } = this.props;
 
         return (
             <Container>
@@ -75,7 +43,7 @@ class Register extends Component {
                     {
                       errorMsg && <Alert variant='danger'> {errorMsg} </Alert>
                     }
-                   <Button  variant="primary" onClick={() => this.validateForm() && userSignUp(email, password)}>   Sign up for free </Button>
+                   <Button  variant="primary" onClick={() => sharedFuncs.validateForm() && userSignUp(email, password)}>   Sign up for free </Button>
                 </Form>
             </Container>
             
@@ -85,43 +53,19 @@ class Register extends Component {
     handleUserInput(email) {
         this.setState({
             email: email
-        }, () => this.fillValidateData('email', email));
+        }, () => sharedFuncs.fillValidateData('email', email));
     }
 
     handlePassInput(pass) {
         this.setState({
             password: pass
-        }, () => this.fillValidateData('password', pass))
+        }, () => sharedFuncs.fillValidateData('password', pass))
     }
-
-    fillValidateData(name, val) {
-        for(let key in this.query){
-            if(key.toString() === name.toString()){
-                this.query[key].value = val;
-            }
-        }
-    }
-
-    validateForm() {
-        for(let key in this.query){
-            let item = this.query[key];
-            let valiItem = item.validata;
-            if(valiItem){
-                for(let k in valiItem){
-                    let valis = valiItem[k];
-                    if(!valis.test(item.value)){
-                        this.setState({
-                            errorMsg: valis.errMessage
-                        });
-                        return false;
-                    }
-                }
-            }
-        }
-        return true; 
-    }
-
 }
+
+const mapStateToProps = (state) => ({
+    errorMsg: state.user.errorMsg
+})
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -131,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

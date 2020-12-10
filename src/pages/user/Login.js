@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form , Button, Container, Alert} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import  * as sharedFuncs from '../../store/common';
 
 class Login extends Component {
     constructor(props) {
@@ -9,39 +10,13 @@ class Login extends Component {
 
         this.state = {
             email: "",
-            password: "",
-            errorMsg:""
-        }
-
-        this.query = {
-            email:{
-                value:'',
-                validata:[
-                    {
-                        errMessage:'email is required!',
-                        test:(value) => {
-                            return value;
-                        }
-                    }
-                ]
-            },
-            password:{
-                value:'',
-                validata:[
-                    {
-                        errMessage:'password is required!',
-                        test:(value) => {
-                            return value;
-                        }
-                    }
-                ]
-            }
+            password: ""
         }
     }
 
     render() {
-        const { email, password, errorMsg } = this.state;
-        const { userSignIn } = this.props;
+        const { email, password } = this.state;
+        const { errorMsg, userSignIn } = this.props;
 
         return (
             <Container>
@@ -69,53 +44,28 @@ class Login extends Component {
                     {
                       errorMsg && <Alert variant='danger'> {errorMsg} </Alert>
                     }
-                   <Button  variant="primary" onClick={() => this.validateForm() && userSignIn(email, password)}>Sign in</Button>
+                   <Button  variant="primary" onClick={() => sharedFuncs.validateForm(true) && userSignIn(email, password)}>Sign in</Button>
                 </Form>
-            </Container>
-            
+            </Container>   
         )
     }
 
     handleUserInput(email) {
         this.setState({
             email: email
-        }, () => this.fillValidateData('email', email));
+        }, () => sharedFuncs.fillValidateData('login_email', email, true));
     }
 
     handlePassInput(pass) {
         this.setState({
             password: pass
-        }, () => this.fillValidateData('password', pass))
-    }
-
-    fillValidateData(name, val) {
-        for(let key in this.query){
-            if(key.toString() === name.toString()){
-                this.query[key].value = val;
-            }
-        }
-    }
-
-    validateForm() {
-        for(let key in this.query){
-            let item = this.query[key];
-            let valiItem = item.validata;
-            if(valiItem){
-                for(let k in valiItem){
-                    let valis = valiItem[k];
-                    if(!valis.test(item.value)){
-                        this.setState({
-                            errorMsg: valis.errMessage
-                        });
-                        return false;
-                    }
-                }
-            }
-        }
-        return true; 
+        }, () => sharedFuncs.fillValidateData('login_password', pass, true))
     }
 
 }
+const mapStateToProps = (state) => ({
+    errorMsg: state.user.errorMsg
+})
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -125,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
