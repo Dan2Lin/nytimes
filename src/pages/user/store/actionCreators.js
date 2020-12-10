@@ -1,11 +1,22 @@
 import axios from 'axios';
 import * as constants from './constants';
-import { apiUrls } from '../../../store/apiUrls';
 
 const saveAccessToken = (token) => ({
     type: constants.SAVE_TOKEN,
     token
 })
+
+const getToken = () => {
+    let token = localStorage.getItem('accessToken');
+    if(!token) {
+        token = this.refreshToken();
+    }
+    return token;
+}
+
+const refreshToken = () => {
+    // refresh token 
+}
 
 export const signUp = (mail, pass) => {
     return (dispatch) => {
@@ -14,18 +25,23 @@ export const signUp = (mail, pass) => {
             password: pass 
         }).then((res) => {
                 dispatch(saveAccessToken(res.data.access_token));
-                
-                //dispatch(setNewsList(formatListData(res.data.results)));
             }).catch((err) => {
                 console.log('error');
             })
         }
 }
 
-export const signIn = (name, pass) => {
+export const signIn = (mail, pass) => {
     return (dispatch) => {
-        axios.post(apiUrls.login)
-            .then((res) => {
+        axios.post('/auth/login', {
+            email: mail,
+            password: pass  
+        }, {
+            "headers": {
+                authorization: "Bearer " + getToken() 
+            }
+        }).then((res) => {
+                console.log('loginSuccess');
                 console.log(res);
                 //dispatch(setNewsList(formatListData(res.data.results)));
             }).catch((err) => {

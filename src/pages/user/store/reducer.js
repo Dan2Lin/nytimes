@@ -7,6 +7,7 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
         case constants.SAVE_TOKEN:
+            localStorage.setItem('accessToken', action.token);
             return {
                 ...state,
                 accessToken: action.token

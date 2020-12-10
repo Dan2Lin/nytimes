@@ -75,14 +75,8 @@ class Register extends Component {
                     {
                       errorMsg && <Alert variant='danger'> {errorMsg} </Alert>
                     }
-                   
+                   <Button  variant="primary" onClick={() => this.validateForm() && userSignUp(email, password)}>   Sign up for free </Button>
                 </Form>
-                <Button 
-                        variant="primary" 
-                        onClick={() => this.validateForm() && userSignUp(email, password)}
-                    >
-                        Sign up for free
-                    </Button>
             </Container>
             
         )
@@ -132,7 +126,6 @@ class Register extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         userSignUp: (email, pass) => {
-            console.log('registe..');
             dispatch(actionCreators.signUp(email, pass));
         }
     }
