@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
-import { Form , Button} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Form , Button, Container} from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-export class Login extends Component {
+class Login extends Component {
     render() {
         return (
-            <Fragment>
+            <Container>
                 <h4 className="bg-light mt-5 p-3 text-center">Login Page</h4>
                 <Form>
                     <Form.Group controlId="formUserName">
@@ -22,7 +22,7 @@ export class Login extends Component {
                         Sign in
                     </Button>
                 </Form>
-            </Fragment>
+            </Container>
         )
     }
 }

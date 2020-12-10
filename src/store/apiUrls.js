@@ -1,4 +1,5 @@
 const baseURL = 'https://api.nytimes.com/svc';
+// const fakeBaseUrl = 'localhost:8000';
 const apiKey = 'CwUxzSITpEGUlawcpUwolozJjT45QgDH';
 
 export const apiUrls = {
@@ -7,5 +8,7 @@ export const apiUrls = {
     scienceStoryList: baseURL + '/topstories/v2/science.json?api-key=' + apiKey,
     usStoryList: baseURL + '/topstories/v2/us.json?api-key=' + apiKey,
     artsStoryList: baseURL + '/topstories/v2/arts.json?api-key=' + apiKey,
-    searchArticles: baseURL + '/search/v2/articlesearch.json?api-key=' + apiKey
+    searchArticles: baseURL + '/search/v2/articlesearch.json?api-key=' + apiKey,
+    // register: fakeBaseUrl + '/auth/register',
+    // login: fakeBaseUrl + '/auth/login'
 }

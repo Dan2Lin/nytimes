@@ -21,6 +21,7 @@ const formatListData = (list) => {
         newItem.published_date = new Date(item.pub_date).toDateString();
         newItem.img = getMediaImage(item.multimedia);
         newDocs.push(newItem);
+        return null;
     });
 
     newMeta.page = (list.meta.offset / 10) + 1 || 1;
