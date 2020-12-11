@@ -4,6 +4,7 @@ import NewsList from '../home/component/newsList/NewsList';
 import CategoryFilter from '../home/component/categoryFilter/CategoryFilter';
 import Header from '../../common/header/Header';
 import Footer from '../../common/footer/Footer';
+import Error from '../../common/error/Error';
 
 export default class Home extends Component {
     render() {
@@ -12,8 +13,10 @@ export default class Home extends Component {
                 <Header />
                 <Container>
                     <CategoryFilter/>
-                    <NewsList />
-                    <Footer />
+                    <Error>
+                        <NewsList />
+                        <Footer />
+                    </Error>
                 </Container>
             </Fragment>
         )

@@ -4,7 +4,9 @@ const defaultState = {
     inputValue: '',
     latestedSearch: '',
     searchHistory: JSON.parse(localStorage.getItem('searchHistory')) || [],
-    focused: false
+    focused: false,
+    isLoading: false,
+    errorMsg: {}
 }
 
 const setSearchHistory = (state, query) => {
@@ -43,6 +45,26 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 inputValue : action.value
+            }
+        case constants.SET_LOADING:
+            return {
+                ...state,
+                isLoading : true
+            }
+        case constants.REMOVE_LOADING:
+            return {
+                ...state,
+                isLoading : false
+            }
+        case constants.SET_ERROR:
+            return {
+                ...state,
+                errorMsg : action.data
+            }
+        case constants.REMOVE_ERROR:
+            return {
+                ...state,
+                errorMsg : ''
             }
         default:
             return state;

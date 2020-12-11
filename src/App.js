@@ -6,6 +6,8 @@ import Home from './pages/home/Home';
 import Detail from './pages/detail/Detail';
 import Login from './pages/user/Login';
 import Register  from './pages/user/Register';
+import Loading from './common/loading/Loading';
+import RequestError from './common/error/RequestError';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
             <Route path='/detail' exact component={Detail}></Route>
             <Route path='/login' exact component={Login}></Route>
             <Route path='/register' exact component={Register}></Route>
+            <Loading />
+            <RequestError />
       </Provider>
     </Router>
   );

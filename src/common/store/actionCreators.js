@@ -48,6 +48,23 @@ const searchArticle = (query, page = 0) => {
     }
 }
 
+export const setLoading = () => ({
+    type: constants.SET_LOADING
+})
+
+export const removeLoading = () => ({
+    type: constants.REMOVE_LOADING
+})
+
+export const setError = (data) => ({
+    type: constants.SET_ERROR,
+    data
+})
+
+export const removeError = () => ({
+    type: constants.REMOVE_ERROR
+})
+
 export const getMediaImage = (mediaArr = [] , format = ['mediumThreeByTwo210', 'wide', 'mediumSquare149']) => {
     return mediaArr.length && mediaArr.find(item => {
         if(item.url.indexOf('http') < 0) {

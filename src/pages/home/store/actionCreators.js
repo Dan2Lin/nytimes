@@ -57,7 +57,7 @@ export const getList = () => {
             .then((res) => {
                 dispatch(setNewsList(formatListData(res.data.results)));
             }).catch((err) => {
-                console.log('error');
+                console.log('getList error');
             })
         }
 }
