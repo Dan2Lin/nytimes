@@ -7,8 +7,6 @@ import Detail from './pages/detail/Detail';
 import Login from './pages/user/Login';
 import Register  from './pages/user/Register';
 
-import './App.scss';
-
 function App() {
   return (
     <Router history = {history}>

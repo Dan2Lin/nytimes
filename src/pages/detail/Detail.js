@@ -9,7 +9,7 @@ export default class Detail extends Component {
             <Fragment>
                 <Header />
                 <Container>
-                    <NewsDetail />
+                    <NewsDetail/>
                     <Comments />
                 </Container>
             </Fragment>

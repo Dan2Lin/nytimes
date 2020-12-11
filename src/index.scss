@@ -14,21 +14,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
-.display-4 {
-  font-size: 2.5rem;
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background: #ddd;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 57px;
+  font-size: 30px;
+  color: #fff;
 }
 
-.h-250 { 
-  height: 250px; 
-}
 
-@include media-breakpoint-up(md){
-  .display-4 {
-      font-size: 3rem;
-  }
-
-  .h-md-250 { 
-    height: 250px; 
-  }
-}
 

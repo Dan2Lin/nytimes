@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Media } from 'react-bootstrap';
+import { Row, Media } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actionCreators } from '../../store';
 import './NewsDetail.scss';
@@ -14,17 +14,15 @@ class NewsDetail extends Component {
         const { article } = this.props;
 
         return (
-            <Container>
-                <Row>
-                    <Media>
-                        <Media.Body className="article-post">
-        <h2 className="article-post-title">{article.title}</h2>
-                            <p className="article-post-meta">{article.date} by <strong> {article.author} </strong></p>
-                            <section dangerouslySetInnerHTML={{__html: article.content}}></section>
-                        </Media.Body>
-                    </Media>
-                </Row>
-            </Container>
+            <Row>
+                <Media>
+                    <Media.Body className="article-post">
+                        <h2 className="article-post-title">{article.title}</h2>
+                        <p className="article-post-meta">{article.date} by <strong> {article.author} </strong></p>
+                        <section dangerouslySetInnerHTML={{__html: article.content}}></section>
+                    </Media.Body>
+                </Media>
+            </Row>
         )
     }
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as constants from './constants';
-import History from '../../../store/history';
+import history from '../../../store/history';
 
 const saveAccessToken = (token) => ({
     type: constants.SAVE_TOKEN,
@@ -34,7 +34,7 @@ export const signUp = (mail, pass) => {
             email: mail,
             password: pass 
         }).then((res) => {
-                History.push('/login');
+                history.push('/login');
                 dispatch(saveAccessToken(res.data.access_token));
             }).catch((err) => {
                 console.log('error');
@@ -47,14 +47,11 @@ export const signIn = (mail, pass) => {
         axios.post('/auth/login', {
             email: mail,
             password: pass  
-        }, {
-            "headers": {
-                authorization: "Bearer " + getToken() 
-            }
         }).then((res) => {
                 console.log('loginSuccess');
                 console.log(res);
-                //dispatch(setNewsList(formatListData(res.data.results)));
+                history.push('/');
+                dispatch(saveAccessToken(res.data.access_token));
             }).catch((err) => {
                 console.log('error');
                 console.log(err);

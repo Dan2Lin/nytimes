@@ -1,10 +1,12 @@
+import { data } from 'jquery';
 import * as constants from './constants';
 
 const defaultState = {
     title: "",
     content: "",
     author: "",
-    date: ""
+    date: "",
+    comments: []
 }
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
@@ -15,6 +17,11 @@ const reducer = (state = defaultState, action) => {
                 content: action.data.content,
                 author: action.data.author,
                 date: new Date(action.data.publishDate).toDateString()
+            }
+        case constants.SET_COMMENTS:
+            return {
+                ...state,
+                comments: action.data
             }
         default:
             return state;

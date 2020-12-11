@@ -7,5 +7,6 @@ export const apiUrls = {
     scienceStoryList: baseURL + '/topstories/v2/science.json?api-key=' + apiKey,
     usStoryList: baseURL + '/topstories/v2/us.json?api-key=' + apiKey,
     artsStoryList: baseURL + '/topstories/v2/arts.json?api-key=' + apiKey,
-    searchArticles: baseURL + '/search/v2/articlesearch.json?api-key=' + apiKey
+    searchArticles: baseURL + '/search/v2/articlesearch.json?api-key=' + apiKey,
+    comments: baseURL + '/community/v3/user-content/url.json?api-key=' + apiKey
 }
