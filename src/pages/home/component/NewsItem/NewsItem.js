@@ -6,7 +6,7 @@ export default class NewsItem extends Component {
     render() {
         const { item } = this.props;
         return item && (
-            <LinkContainer to="/detail">
+            // <LinkContainer to="/detail">
                 <Col xs={12} className="news-item">
                     <Row className="no-gutters border-bottom">
                         <Col className="p-4 d-flex flex-column">
@@ -18,7 +18,7 @@ export default class NewsItem extends Component {
                         { this.renderImg(item.img)}
                     </Row>
                 </Col>
-            </LinkContainer>
+            // </LinkContainer>
         )
     }
 
