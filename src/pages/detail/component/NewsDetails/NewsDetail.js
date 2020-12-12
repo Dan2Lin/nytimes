@@ -6,6 +6,13 @@ import './NewsDetail.scss';
 
 class NewsDetail extends Component {
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps != this.props || nextState!= this.state) {
+            return true;
+        }
+        return false;
+    }
+
     componentDidMount() {
         this.props.getArticleDetail();
     } 

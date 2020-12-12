@@ -41,6 +41,9 @@ class Login extends Component {
                             ref={(passInput) => this.passInput = passInput}
                             onChange={() => this.handlePassInput(this.passInput.value)}/>
                     </Form.Group>
+                    <Form.Text className="text-muted mb-3">
+                        * You can use email 'bruno@email.com' and password 'bruno' to login.
+                    </Form.Text>
                     {
                       errorMsg && <Alert variant='danger'> {errorMsg} </Alert>
                     }

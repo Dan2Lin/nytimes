@@ -6,6 +6,7 @@ const defaultState = {
     searchHistory: JSON.parse(localStorage.getItem('searchHistory')) || [],
     focused: false,
     isLoading: false,
+    loginOrLogout: 'login',
     errorMsg: {}
 }
 
@@ -66,6 +67,11 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 errorMsg : ''
             }
+        case constants.CHNAGE_LOGIN:
+            return {
+                ...state,
+                loginOrLogout : action.data
+            }   
         default:
             return state;
     }

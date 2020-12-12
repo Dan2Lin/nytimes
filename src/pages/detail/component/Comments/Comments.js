@@ -6,6 +6,13 @@ import { actionCreators } from '../../store';
 
 class Comments extends Component {
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps != this.props || nextState!= this.state) {
+            return true;
+        }
+        return false;
+    }
+
     componentDidMount() {
         const search = history.location.search;
         this.props.getComments(search.substr(search.indexOf('http')));

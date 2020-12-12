@@ -40,6 +40,9 @@ class Register extends Component {
                             ref={(passInput) => this.passInput = passInput}
                             onChange={() => this.handlePassInput(this.passInput.value)}/>
                     </Form.Group>
+                    <Form.Text className="text-muted mb-3">
+                        * After register success, you need to restart the fake-auth server, then this account can be use.
+                    </Form.Text>
                     {
                       errorMsg && <Alert variant='danger'> {errorMsg} </Alert>
                     }

@@ -6,7 +6,7 @@ import {actionCreators as homeActionCreators } from '../../pages/home/store';
 const setSearchHistory = (query) => ({
     type: constants.SET_SEARCH_HISTORY,
     query
-})
+});
 
 const formatListData = (list) => {
     let newData = {};
@@ -46,7 +46,12 @@ const searchArticle = (query, page = 0) => {
                 console.log('error');
             })
     }
-}
+};
+
+export const changeLogin = (data) => ({
+    type: constants.CHNAGE_LOGIN,
+    data
+})
 
 export const setLoading = () => ({
     type: constants.SET_LOADING

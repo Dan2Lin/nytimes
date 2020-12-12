@@ -5,5 +5,6 @@ export const SET_LOADING = 'common/SET_LOADING';
 export const REMOVE_LOADING = 'common/REMOVE_LOADING';
 export const SET_ERROR = 'common/SET_ERROR';
 export const REMOVE_ERROR = 'common/REMOVE_ERROR';
+export const CHNAGE_LOGIN = 'common/CHNAGE_LOGIN';
 
 export const STATIC_RESOURCE_URL = "https://static01.nyt.com/";

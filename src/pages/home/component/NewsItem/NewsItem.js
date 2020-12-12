@@ -4,6 +4,14 @@ import history from '../../../../store/history';
 import './NewsItem.scss';
 
 export default class NewsItem extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps != this.props || nextState!= this.state) {
+            return true;
+        }
+        return false;
+    }
+
     render() {
         const { item } = this.props;
         return item && (

@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { actionCreators } from '../../store';
 import './CategoryFilter.scss';
 class CategoryFilter extends Component {
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps != this.props || nextState!= this.state) {
+            return true;
+        }
+        return false;
+    }
 
     render() {
         const { categoryList, getListByCategory } = this.props;

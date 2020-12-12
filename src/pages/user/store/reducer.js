@@ -13,6 +13,12 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 accessToken: action.token
             }
+        case constants.CLEAR_TOKEN:
+            localStorage.setItem('accessToken', '');
+            return {
+                ...state,
+                accessToken: ''
+            }
         case constants.SET_ERROR_MSG:
             return {
                 ...state,

@@ -1,23 +1,29 @@
 import axios from 'axios';
 import * as constants from './constants';
 import history from '../../../store/history';
+import { actionCreators as commonActionCreators } from '../../../common/store';
+
 
 const saveAccessToken = (token) => ({
     type: constants.SAVE_TOKEN,
     token
 })
 
-const getToken = () => {
-    let token = localStorage.getItem('accessToken');
-    if(!token) {
-        token = this.refreshToken();
-    }
-    return token;
-}
+export const clearAccessToken = () => ({
+    type: constants.CLEAR_TOKEN
+})
 
-const refreshToken = () => {
-    // refresh token 
-}
+// const getToken = () => {
+//     let token = localStorage.getItem('accessToken');
+//     if(!token) {
+//         token = this.refreshToken();
+//     }
+//     return token;
+// }
+
+// const refreshToken = () => {
+//     // refresh token 
+// }
 
 export const setErrorMsg = (errorMsg) => ({
     type: constants.SET_ERROR_MSG,
@@ -48,13 +54,12 @@ export const signIn = (mail, pass) => {
             email: mail,
             password: pass  
         }).then((res) => {
-                console.log('loginSuccess');
-                console.log(res);
                 history.push('/');
                 dispatch(saveAccessToken(res.data.access_token));
+                dispatch(commonActionCreators.changeLogin('logout'));
             }).catch((err) => {
                 console.log('error');
-                console.log(err);
+                console.log(err.message);
             })
         }
 }
