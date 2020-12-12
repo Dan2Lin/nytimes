@@ -7,5 +7,5 @@ module.exports = function(app) {
         target: 'http://localhost:8000',
         changeOrigin: true
     })
-  );
+  )
 };

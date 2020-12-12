@@ -66,9 +66,9 @@ export const getListByCategory = (cname) => {
     return (dispatch) => {
         axios.get(getApiName(cname))
             .then((res) => {
-                dispatch(setNewsList(res.data.results));
+                dispatch(setNewsList(formatListData(res.data.results)));
             }).catch((err) => {
-                console.log('error');
+                console.log('getListByCategory error');
             })
     }
 }

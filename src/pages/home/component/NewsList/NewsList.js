@@ -14,7 +14,7 @@ class NewsList extends Component {
     render() {
         const { list, meta } = this.props;
 
-        if(list.length > 0) {
+        if(list && list.length > 0) {
             return (
                 <Row className="mb-2">
                     {list.map((item) => {

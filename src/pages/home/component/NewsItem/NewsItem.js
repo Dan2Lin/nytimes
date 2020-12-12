@@ -24,7 +24,7 @@ export default class NewsItem extends Component {
     renderImg(item) {
         if(item && item.url) {
             return (
-                <Col xs="auto" className="d-flex align-items-center">
+                <Col xs="auto" className="d-md-flex align-items-center col-md-auto d-none">
                     <img src={item.url} alt={ item.caption || ''} />
                 </Col>
             )

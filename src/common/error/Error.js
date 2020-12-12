@@ -11,13 +11,17 @@ export default class Error extends Component {
     }
   
     componentDidCatch(error, errorInfo) {
-      logErrorToMyService(error, errorInfo);
+        console.log(error);
+        console.log(errorInfo);
+    //   logErrorToMyService(error, errorInfo);
     }
   
     render() {
       if (this.state.hasError) {
         return (
-            <h1>Something went wrong, please try again or contact the administrator.</h1>
+            <div className="fade modal-backdrop show d-flex justify-content-center align-items-center">
+                <h1>Something went wrong, please try again or contact the administrator.</h1>
+            </div> 
         )
       }
   

@@ -1,12 +1,12 @@
 import axios from 'axios';
 import store from './index';
-import {actionCreators as commonActionCreators } from '../common/store';
+import { actionCreators as commonActionCreators } from '../common/store';
 
 const state = store.getState()
 
-// Add a request interceptor
 axios.interceptors.request.use(function (config) {
-    config.headers.Authorization = "Bear " + state.user.accessToken;
+    // ny times api add authorization error, so hide it
+    // config.headers.Authorization = "Bear " + state.user.accessToken;
     store.dispatch(commonActionCreators.setLoading());
     return config;
   }, function (error) {

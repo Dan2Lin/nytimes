@@ -13,7 +13,7 @@ class Search extends Component {
                     <FormControl 
                         type="text"
                         placeholder=""
-                        className="mr-sm-2"
+                        className="mr-2 search-form"
                         value={inputValue}
                         ref={(form) => this.form = form}
                         onChange={() => setInputValue(this.form.value)}
