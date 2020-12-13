@@ -6,6 +6,10 @@ This project is a demo for NYnews site, it used react, redux and react-bootststa
 
 In the project directory, you can run:
 
+### `npm install`
+
+To install all the dependencies. Then run
+
 ### `npm run start`
 
 Runs the app in the development mode.\
