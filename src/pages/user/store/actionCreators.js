@@ -13,18 +13,6 @@ export const clearAccessToken = () => ({
     type: constants.CLEAR_TOKEN
 })
 
-// const getToken = () => {
-//     let token = localStorage.getItem('accessToken');
-//     if(!token) {
-//         token = this.refreshToken();
-//     }
-//     return token;
-// }
-
-// const refreshToken = () => {
-//     // refresh token 
-// }
-
 export const setErrorMsg = (errorMsg) => ({
     type: constants.SET_ERROR_MSG,
     errorMsg

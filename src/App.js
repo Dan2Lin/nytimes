@@ -6,20 +6,17 @@ import Home from './pages/home/Home';
 import Detail from './pages/detail/Detail';
 import Login from './pages/user/Login';
 import Register  from './pages/user/Register';
-import Loading from './common/loading/Loading';
-import RequestError from './common/error/RequestError';
+
 import PageNotFound from './common/error/PageNotFound';
-import Header from './common/header/Header';
+
 
 function App() {
   return (
     <Router history = {history}>
-      <Provider store = {store}>
-            <Header></Header>
+      {/* <Provider store = {store}> */}
             { getRoutes() }
-            <Loading />
-            <RequestError />
-      </Provider>
+            
+      {/* </Provider> */}
     </Router>
   );
 }
