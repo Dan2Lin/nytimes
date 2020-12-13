@@ -42,12 +42,13 @@ export const signIn = (mail, pass) => {
             email: mail,
             password: pass  
         }).then((res) => {
-                history.push('/');
                 dispatch(saveAccessToken(res.data.access_token));
                 dispatch(commonActionCreators.changeLogin('logout'));
+                history.push('/');
             }).catch((err) => {
                 console.log('error');
-                console.log(err.message);
+                const error  =  err.response && err.response.data && err.response.data.message || 'Error: some thing went wrong.';
+                dispatch(setErrorMsg(error));
             })
         }
 }
